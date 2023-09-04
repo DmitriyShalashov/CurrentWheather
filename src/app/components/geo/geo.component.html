@@ -1,7 +1,7 @@
 <div class="w-[1200px] h-[300px] m-auto mb-[40px] flex gap-[40px] justify-between">
     <div class="bg-white h-full w-[560px] shadow-xl p-[20px] flex flex-col">
         <div class="mb-[35px] flex items-center gap-[20px]">
-            <img src="../../../assets/static/logo.png" class="h-[50px]">
+            <img src="assets/static/logo.png" class="h-[50px]">
             <div>
                 <p class="text-[20px] font-medium font-[pacifico]">DemoWheather</p>
                 <p class="font-normal font-sans text-[14px] italic" >Погода в вашем городе</p>
@@ -40,12 +40,12 @@
                 </div>
                 
                 <div [ngSwitch]="geoData.country" class="w-[300px] h-full" >
-                    <ng-template ngSwitchCase="Россия" ><img src="../../../assets/static/rus.png"/></ng-template>
-                    <ng-template ngSwitchCase="Франция" ><img src="../../../assets/static/fra.png"/></ng-template>
-                    <ng-template ngSwitchCase="Индия" ><img src="../../../assets/static/ind.png"/></ng-template>
-                    <ng-template ngSwitchCase="Италия" ><img src="../../../assets/static/ita.png"/></ng-template>
-                    <ng-template ngSwitchCase="Великобритания" ><img src="../../../assets/static/eng.png"/></ng-template>
-                    <ng-template ngSwitchCase="Соединенные Штаты Америки" ><img src="../../../assets/static/usa.png"/></ng-template>
+                    <ng-template ngSwitchCase="Россия" ><img src="assets/static/rus.png"/></ng-template>
+                    <ng-template ngSwitchCase="Франция" ><img src="assets/static/fra.png"/></ng-template>
+                    <ng-template ngSwitchCase="Индия" ><img src="assets/static/ind.png"/></ng-template>
+                    <ng-template ngSwitchCase="Италия" ><img src="assets/static/ita.png"/></ng-template>
+                    <ng-template ngSwitchCase="Великобритания" ><img src="assets/static/eng.png"/></ng-template>
+                    <ng-template ngSwitchCase="Соединенные Штаты Америки" ><img src="assets/static/usa.png"/></ng-template>
                     <ng-template ngSwitchDefault><img src="https://img.freepik.com/premium-photo/a-watercolor-painting-of-a-street-scene-in-new-york-city_899870-23103.jpg"/></ng-template>
                 </div>
             </div>
