@@ -1,0 +1,42 @@
+<div class="bg-white h-[300px] w-[900px] shadow-xl overflow-hidden">
+   <div [@expandedPanel]="state" *ngIf="wheather.cloud!==undefined">
+    <div class="flex justify-between ">
+        <div class="w-fit p-[20px]">
+            <p class="text-[22px] font-medium font-[pacifico]">Погода сейчас</p>
+            <div class="flex gap-[10px] items-center">
+                <p class="text-[17px]">{{wheather.condition.text}}</p>
+                <img [src]="wheather.condition.icon" alt="condition">
+                <p class="text-[15px] text-neutral-700">Облачность: {{wheather.cloud}}%</p>
+            </div>
+            
+            <div class="">
+                <p class="text-[15px] text-neutral-700">Количество осадков: {{wheather.precip_mm}}</p>
+                <p class="text-[15px] text-neutral-700">Атмосферное давление: {{wheather.pressure_mb}}</p>
+                <p class="text-[15px] text-neutral-700">Ветер: {{wheather.wind_kph/3.6|number:".1-2"}} м/c  {{wheather.wind_dir}}</p>
+            </div>
+        </div>
+        <div class="p-[20px]">
+            <p class="text-[22px] font-medium font-[pacifico] mb-[20px]">Температура</p>
+            <p class="text-[15px] text-neutral-700">Температура: {{wheather.temp_c}}°C</p>
+            <p class="text-[15px] text-neutral-700">Ощущается: {{wheather.temp_c}}°C</p>
+            <p class="text-[15px] text-neutral-700">Влажность: {{wheather.humidity}}%</p>
+        </div>
+        <div class="w-fit h-[300px]" *ngIf="wheather.is_day===1;else night">
+            <div class="w-fit h-[300px] overflow-hidden">
+                <img src='https://i.pinimg.com/564x/b8/aa/6b/b8aa6b592b4c9e1cd41c049fbedb66d1.jpg' class="w-[200px]"/>
+            </div>
+        </div>
+        <ng-template #night >
+            <div class="w-fit h-[300px] overflow-hidden">
+                <img src='https://i.pinimg.com/564x/cf/d3/a8/cfd3a8c1175d96035c2162687bac0d68.jpg' class="w-[200px]"/>
+            </div>
+        </ng-template>
+    </div>
+    
+   
+    <!-- 
+    
+    {{wheather.humidity}} -->
+   </div>
+    
+</div>

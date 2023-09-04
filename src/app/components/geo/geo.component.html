@@ -1,0 +1,66 @@
+<div class="w-[1200px] h-[300px] m-auto mb-[40px] flex gap-[40px] justify-between">
+    <div class="bg-white h-full w-[560px] shadow-xl p-[20px] flex flex-col">
+        <div class="mb-[35px] flex items-center gap-[20px]">
+            <img src="../../../assets/static/logo.png" class="h-[50px]">
+            <div>
+                <p class="text-[20px] font-medium font-[pacifico]">DemoWheather</p>
+                <p class="font-normal font-sans text-[14px] italic" >Погода в вашем городе</p>
+            </div>
+            
+
+        </div>
+        <p class="font text-[16px] mb-[10px]">Введите название города</p>
+        <input 
+            name="countryName"
+            #country="ngModel"
+            [(ngModel)]="countryName"
+            required="true"
+            placeholder="Название города"
+            class="form-control w-[300px] outline-none border py-[5px] px-[10px] transition-all hover:opacity-80 active:shadow-md hover:shadow-lg shadow-md"
+        />
+        <div
+            *ngIf="country.invalid && (country.dirty || country.touched)"
+        >
+            <div *ngIf="country.errors?.['required']" class="text-[12px] text-red-500">
+                Необходимо заполнить поле
+            </div>
+        </div>
+        
+        <button 
+            (click)="onQueryChange()"
+            class="mt-[15px] w-fit px-[30px] py-[10px] bg-white border-[1px] transition-all hover:opacity-80 active:shadow-md hover:shadow-lg shadow-md">Показать
+        </button>
+    </div>
+    <div class="w-fit bg-white shadow-xl overflow-hidden">
+        <div class="w-fit bg-white" [@expandedPanel]="state" >
+            <div class="flex justify-between w-[600px] bg-white" *ngIf="geoData.country!==undefined;else other_content">
+                <div class="font-[pacifico] w-[300px] p-[10px]" >
+                    <p class="font-medium text-[30px] mb-[10px]">{{geoData.name}} <span class="text-[22px] font-normal">, {{geoData.country}}</span></p>
+                    <p class="font-sans font-normal text-neutral-600 text-[18px] italic">{{localTime}}</p>
+                </div>
+                
+                <div [ngSwitch]="geoData.country" class="w-[300px] h-full" >
+                    <ng-template ngSwitchCase="Россия" ><img src="../../../assets/static/rus.png"/></ng-template>
+                    <ng-template ngSwitchCase="Франция" ><img src="../../../assets/static/fra.png"/></ng-template>
+                    <ng-template ngSwitchCase="Индия" ><img src="../../../assets/static/ind.png"/></ng-template>
+                    <ng-template ngSwitchCase="Италия" ><img src="../../../assets/static/ita.png"/></ng-template>
+                    <ng-template ngSwitchCase="Великобритания" ><img src="../../../assets/static/eng.png"/></ng-template>
+                    <ng-template ngSwitchCase="Соединенные Штаты Америки" ><img src="../../../assets/static/usa.png"/></ng-template>
+                    <ng-template ngSwitchDefault><img src="https://img.freepik.com/premium-photo/a-watercolor-painting-of-a-street-scene-in-new-york-city_899870-23103.jpg"/></ng-template>
+                </div>
+            </div>
+            <ng-template #other_content >
+                <div class="w-[600px] flex items-center">
+                    <div class="w-[300px] p-[20px]">
+                        <p class="text-[18px] mb-[10px] font-[paci] italic">Не выбран город</p>
+                    </div>
+                    <div class="w-[300px] h-full">
+                        <img class="" src="https://img.freepik.com/premium-photo/a-watercolor-painting-of-a-lighthouse-with-a-colorful-stripe_901003-39804.jpg?w=2000">
+                    </div>
+                </div>
+                
+            </ng-template>
+        </div>
+        
+    </div>
+</div>
