@@ -13,6 +13,6 @@ export class GeoService {
   ) { }
 
   getGeoByQuery(query:string){
-    return this.http.get(`http://api.weatherapi.com/v1/current.json?key=db58ff7bdfbb4bc7ba6181733230209&q=${query}&lang=ru`)
+    return this.http.get(`https://api.weatherapi.com/v1/current.json?key=db58ff7bdfbb4bc7ba6181733230209&q=${query}&lang=ru`)
   }
 }
